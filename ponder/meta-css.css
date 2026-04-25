@@ -1,0 +1,33 @@
+body {
+    background-color:pink;
+
+}
+#content{
+    max-width: 60%;
+    border: 1px solid darkred;
+    margin: 40px auto;
+    padding: 50px;
+}
+p{
+    color:brown;
+    font-size: 1.3em;
+}
+hr{
+    height: 3px;
+    background-color: darkred;
+    width:80%;
+}
+#logos{
+    text-align: center;
+}
+img{
+    width:50%
+}
+#topics{
+    line-height: 1.5em;
+    margin: 0 auto;
+    width:55%;
+}
+.list{
+    list-style-type: none;
+}
