@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Character Card - Snortleblat</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Character Card - Swamp Beast Diplomat">
+    <meta property="og:description" content="A JavaScript object character card with properties and methods.">
+    <meta property="og:url" content="https://emj236590.github.io/wdd131/charactercard/character.html/>
+    <meta property="og:image" content="images/swamp-beast.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Character Card - Snortleblat">
+    <meta name="twitter:description" content="A JavaScript object character card with properties and methods.">
+    <meta name="twitter:image" content="images/swamp-beast.jpg">
+
+    <!-- Icons -->
+    <link rel="icon" href="/eventform/favicon.png">
+    <link rel="apple-touch-icon" href="/charactercard/images/apple-touch-icon.jpg">
+
+    <link rel="stylesheet" href="character.css">
+</head>
+<body>
+
+    <div class="card">
+
+        <img
+            id="characterImage"
+            class="image"
+            src="images/swamp-beast.jpg"
+            alt="Snortleblat">
+
+        <div id="characterName" class="name"></div>
+
+        <div class="stats">
+            <p>Class: <span id="characterClass"></span></p>
+            <p>Level: <span id="characterLevel"></span></p>
+            <p>Health: <span id="characterHealth"></span></p>
+            <p id="message"></p>
+        </div>
+
+        <div class="buttons">
+            <button id="attackButton">Attack</button>
+            <button id="levelButton">Level Up</button>
+        </div>
+
+    </div>
+
+    <script src="character.js"></script>
+
+</body>
+</html>
