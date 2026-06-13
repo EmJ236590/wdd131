@@ -1,7 +1,7 @@
 const aCourse = {
     code: 'CSE121b',
     name: 'Javascript Language',
-    logo: 'images/js-logo.png',
+    logo: 'images/js-logo.jpg',
     sections: [
     { sectionNum: 1, roomNum: 'STC 353', enrolled: 26, days: 'TTh', instructor: 'Bro T'},
     { sectionNum: 2, roomNum: 'STC 347', enrolled: 28, days: 'TTh', instructor: 'Sis A'}
@@ -28,7 +28,7 @@ console.log(aCourse.name);
  document.querySelector('img').setAttribute('alt, aCourse.name');
  document.querySelector('img').style.width='100px';
 
- 
+
 
 function sectionTemplate(section) {
     return `<tr>
