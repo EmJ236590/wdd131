@@ -68,13 +68,14 @@ h2 {
 
 /* Recipe */
 
-.recipe-card {
+#recipe-container {
     display: flex;
     flex-direction: column;
-    border: 1px solid #ccc;
+    gap: 1rem;
     width: 90%;
     max-width: 900px;
     margin: 2rem auto;
+    border: none;
 }
 
 .recipe-info {
@@ -116,14 +117,10 @@ footer {
 
 @media (min-width: 700px) {
 
-    .recipe-card {
+    #recipe-container {
         flex-direction: row;
     }
 
-    .recipe-card img {
-        width: 50%;
-        object-fit: cover;
-    }
 
     .recipe-info {
         width: 50%;

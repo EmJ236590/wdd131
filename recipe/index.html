@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
+    <script defer src="recipe.js" ></script>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -42,42 +43,19 @@
 
 <main>
 
+    <main>
+
     <form class="search">
-        <input type="text" placeholder="Find a recipe">
-        <button type="submit">
+        <input id="search" type="text" placeholder="Find a recipe">
+
+        <button type="button">
             <img src="images/search.svg" alt="Search">
         </button>
     </form>
 
-    <article class="recipe-card">
-
-        <img src="images/apple-crisp.jpg" alt="Apple Crisp">
-
-        <div class="recipe-info">
-
-            <p class="tag">Dessert</p>
-
-            <h2>Apple Crisp</h2>
-
-            <span
-                class="rating"
-                role="img"
-                aria-label="Rating: 4 out of 5 stars"
-            >
-                <span aria-hidden="true">⭐</span>
-                <span aria-hidden="true">⭐</span>
-                <span aria-hidden="true">⭐</span>
-                <span aria-hidden="true">⭐</span>
-                <span aria-hidden="true">☆</span>
-            </span>
-
-            <p class="description">
-                A warm and comforting apple crisp topped with a buttery oat crumble.
-                Perfect for fall gatherings or a simple family dessert.
-            </p>
-
-        </div>
-
+    <article id="recipe-container">
+     <img>
+     <div class="recipe-info"></div>
     </article>
 
 </main>
