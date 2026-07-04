@@ -1,0 +1,109 @@
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8" />
+		<title>Site Plan</title>
+		<link type="text/css" rel="stylesheet" href="site-plan.css" />
+	</head>
+
+	<body>
+		<header>
+			<h1>StudyMate Project Plan</h1>
+			<h2>Emily Kraemer</h2>
+			<h2>WDD 131</h2>
+			<!-- In the header above, add the name or your site, your name and class number. For example if you are in section 3 you would put WDD 131.03 -->
+		</header>
+		<main>
+			
+			<hr />
+			<h2>Overview</h2>
+			<h3>Purpose</h3>
+            <p>StudyMate is a web application that helps college students organize assignments, exams, and study sessions all in one place! The goal wil be to make coursework easier to organize and for students to stay on top of deadlines. </p>
+			<!-- change this -->
+
+			<h3>Audience</h3>
+			<p> The application is targeted to specifically college students or students that use online applications to organize school assignments, but this app will centralize a location for all a student needs to make a semester successful. </p>
+			<!-- change this -->
+
+			<h3>Dynamic elements</h3>
+			<p>Assignment management: Students will be able to add, edit, delete, and mark assignments as completed on a form that can adapt for each course.</p>
+			<p> Students will be able to filter and sort assignments by course and due date or priority of urgency. All will be done without needing to reload the page.</p>
+			<p> There will be a progress bar with statistics automatically updating as assignments are completed and it will be able to calculate student's grades based on assignments completed.</p>
+			<p> There will be a countdown study timer for students to study for a certain amount of time. </p>
+			<p> Interactive Nav and Menu on Homepage</p>
+			<!-- change this -->
+			<hr />
+			<h2>Branding</h2>
+			<h3>Website Logo</h3>
+			<!-- Replace this with some sort of logo for your site.  A logo can be as simple as the name of your site in a nice font :) -->
+			<img src="images/logo.png" alt="Logo image" />
+			<hr />
+			<h2>Style Guide</h2>
+
+			<h3>Color Palette</h3>
+			<p>#7c60be-nav and menu</p>
+			<p>#589EC6-Footer</p>
+			<p>#899491-Main background</p>
+			<!--  The colors you choose for a website are one of the most important decisions you will make. Follow the instructions on the activity in iLearn then return and replace the color codes below with the hex color codes (the 6 digit numbers that show at the bottom of each color) for the colors you have chosen below.  You should have at least 2 colors but do not have to fill in all 4 if you do not need them.  -->
+
+			<!-- Copy and paste the URL to your finished palette below Make sure to paste it into both spots -->
+			Palette URL:
+			<a
+				href="https://coolors.co/899194-8379a9-7c60be-6a7fc2-589ec6"
+				target="_blank"
+				>https://coolors.co/899194-8379a9-7c60be-6a7fc2-589ec6</a
+			>
+
+			<table class="colors">
+				<tbody>
+					<tr>
+						<th>Primary </th>
+						<th>Secondary</th>
+						<th>Accent 1</th>
+						<th>Accent 2</th>
+					</tr>
+					<!-- Replace the numbers in the boxes below with your hex color codes. Then switch to the site-plan.css file and change your colors there as well. -->
+					<tr>
+						<td class="primary">[#899194]</td>
+						<td class="secondary">[#7C60be]</td>
+						<td class="accent1">[#589EC6]</td>
+							<td class="accent2">[#6A7FC2]</td>
+					</tr>
+				</tbody>
+			</table>
+
+			
+
+			<h3>Pseudocode for your project</h3>
+
+			<p>
+				Add Assignement- When user submits the assignment form: Get title, course, and due date from form Create a new assignment object Add assignment to list (array) Save updated list to local storage Update the page to show all assignments</p>
+				<p> Displaying Assignments: Clear the current assignment display For each assignment in the list: Create a new HTML element Show assignment title, course, and due date If assignment is completed: Style it as completed (gray or crossed out) Add element to the page</p>
+				<p>Complete Assignments: When user clicks "complete" button: Find the assignment in the list using its ID Change completed status to true Save updated list to local storage Refresh the display</p>
+				<p>Study Timer: When user clicks Start: Every 1 second subtract 1 from time remaining and then update timer display and once the timer reaches 0: Stop the timer and Show a break message.</p>
+			<h3>Wireframes</h3>
+			<p>
+				Create wireframes for your project page(s). One for each page and list them
+				here. 
+			</p>
+
+			<h3>Home Page/Dashboard</h3>
+			<p>
+				[Any additional details about home that the wireframe does not make
+				clear]
+			</p>
+			<img src="images/dashboard.png" alt="home page wireframe" />
+			<h3>Page 1</h3>
+			<img src="images/Page 1-assignements.png">
+
+			<h4>Page 2</h4>
+			<img src="images/Page 2-Study Timer.png" alt="page 2 wireframe" />
+			
+			<h5>Page 3</h5>
+		
+			<img src="images/Page 3-Progress .png" alt="page 3 wireframe" />
+		</main>
+	</body>
+</html>
