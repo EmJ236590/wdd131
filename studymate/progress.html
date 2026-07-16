@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Progress | StudyMate</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="main.js" defer></script>
+    <script src="progress.js" defer></script>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+
+    <div class="logo">
+
+        <img src="images/logo.png" alt="StudyMate Logo">
+
+        <h1>StudyMate</h1>
+
+    </div>
+
+
+
+    <nav>
+
+        <ul>
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+
+
+            <li>
+                <a href="assignments.html">Assignments</a>
+            </li>
+
+
+            <li>
+                <a href="timer.html">Study Timer</a>
+            </li>
+
+
+            <li>
+                <a href="progress.html">Progress</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+</header>
+
+
+
+
+
+<main>
+
+
+<section class="progress-page">
+
+
+    <h2>
+        Your Progress
+    </h2>
+
+
+    <p>
+        Track completed assignments and monitor your study goals.
+    </p>
+
+
+
+
+    <div class="progress-cards">
+
+
+        <article>
+
+            <h3>
+                Completed Assignments
+            </h3>
+
+
+            <p class="progress-number" id="completed-count">
+                0
+            </p>
+
+        </article>
+
+
+
+
+        <article>
+
+            <h3>
+                Study Sessions
+            </h3>
+
+
+            <p class="progress-number" id="session-count">
+                0
+            </p>
+
+        </article>
+
+
+
+
+
+    <article>
+
+    <h3>
+        Current Goal
+    </h3>
+
+
+    <p class="progress-number" id="current-goal">
+        Stay Organized
+    </p>
+      </article>
+
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+</main>
+
+<section class="goal-section">
+
+
+    <h2>
+        Academic Goals
+    </h2>
+
+
+    <!-- Goal Form -->
+
+    <form id="goal-form">
+
+
+        <label for="goal-input">
+            Create a New Goal
+        </label>
+
+
+        <input 
+            type="text" 
+            id="goal-input"
+            placeholder="Example: Study 2 hours every day"
+            required
+        >
+
+
+        <button type="submit">
+            Add Goal
+        </button>
+
+
+    </form>
+
+
+
+
+    <!-- Goal List -->
+
+    <ul id="goal-list"></ul>
+
+
+</section>
+
+
+
+
+<footer>
+
+
+    <p>
+        &copy; 2026 StudyMate
+    </p>
+
+
+    <a href="#">
+        About
+    </a>
+
+
+    <a href="#">
+        Contact
+    </a>
+
+
+    <a href="#">
+        Privacy Policy
+    </a>
+
+
+</footer>
+
+
+
+</body>
+
+</html>
