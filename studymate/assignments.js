@@ -3,21 +3,29 @@
 console.log("Assignments JS Loaded");
 
 
-// Select HTML elements
+// ==============================
+// Select HTML Elements
+// ==============================
 
 const form = document.querySelector("#assignmentForm");
 
-const assignmentName = document.querySelector("#assignmentName");
+const assignmentName =
+    document.querySelector("#assignmentName");
 
-const course = document.querySelector("#course");
+const course =
+    document.querySelector("#course");
 
-const dueDate = document.querySelector("#dueDate");
+const dueDate =
+    document.querySelector("#dueDate");
 
-const assignmentList = document.querySelector("#assignmentList");
+const assignmentList =
+    document.querySelector("#assignmentList");
 
 
 
-// Load saved assignments
+// ==============================
+// Load Saved Assignments
+// ==============================
 
 let assignments =
     JSON.parse(localStorage.getItem("assignments")) || [];
@@ -25,7 +33,9 @@ let assignments =
 
 
 
-// Display assignments
+// ==============================
+// Display Assignments
+// ==============================
 
 function displayAssignments() {
 
@@ -33,8 +43,6 @@ function displayAssignments() {
     assignmentList.innerHTML = "";
 
 
-
-    // If no assignments exist
 
     if (assignments.length === 0) {
 
@@ -49,12 +57,11 @@ function displayAssignments() {
 
 
 
-
-
     assignments.forEach((assignment, index) => {
 
 
-        const li = document.createElement("li");
+        const li =
+            document.createElement("li");
 
 
 
@@ -88,7 +95,7 @@ function displayAssignments() {
 
 
                 <button 
-                    class="delete" 
+                    class="delete"
                     data-index="${index}">
                     Delete
                 </button>
@@ -101,7 +108,7 @@ function displayAssignments() {
                 `
 
                 <button 
-                    class="complete" 
+                    class="complete"
                     data-index="${index}">
                     Mark Completed
                 </button>
@@ -109,7 +116,6 @@ function displayAssignments() {
                 `
 
             }
-
 
         `;
 
@@ -126,10 +132,9 @@ function displayAssignments() {
 
 
 
-
-
-
-// Save assignments
+// ==============================
+// Save Assignments
+// ==============================
 
 function saveAssignments() {
 
@@ -145,77 +150,119 @@ function saveAssignments() {
 
 
 
+// ==============================
+// Add New Assignment
+// ==============================
+
+if (form) {
+
+
+    form.addEventListener("submit", function(event) {
+
+
+        event.preventDefault();
 
 
 
-// Add new assignment
-
-form.addEventListener("submit", function(event) {
+        const newAssignment = {
 
 
-    event.preventDefault();
+            name:
+                assignmentName.value,
 
 
-
-    const newAssignment = {
-
-
-        name: assignmentName.value,
+            course:
+                course.value,
 
 
-        course: course.value,
+            date:
+                dueDate.value,
 
 
-        date: dueDate.value,
+            completed:
+                false
 
 
-        completed: false
-
-
-    };
+        };
 
 
 
-    assignments.push(newAssignment);
+        assignments.push(newAssignment);
 
 
 
-    saveAssignments();
+        saveAssignments();
 
 
 
-    displayAssignments();
+        displayAssignments();
 
 
 
-    form.reset();
+        form.reset();
 
 
-});
+    });
+
+
+}
 
 
 
 
 
 
+// ==============================
+// Complete / Delete Assignment
+// ==============================
 
-// Complete or delete assignments
+if (assignmentList) {
+
 
 assignmentList.addEventListener("click", function(event) {
 
 
 
-    const index = event.target.dataset.index;
+    const index =
+        event.target.dataset.index;
 
 
 
-    // Mark completed
+    // ==============================
+    // Mark Assignment Complete
+    // ==============================
+
 
     if(event.target.classList.contains("complete")) {
 
 
 
-        assignments[index].completed = true;
+        // Prevent counting twice
+
+        if(!assignments[index].completed) {
+
+
+
+            assignments[index].completed = true;
+
+
+
+            let completedAssignments =
+                Number(localStorage.getItem("completedAssignments")) || 0;
+
+
+
+            completedAssignments++;
+
+
+
+            localStorage.setItem(
+                "completedAssignments",
+                completedAssignments
+            );
+
+
+        }
 
 
 
@@ -231,8 +278,10 @@ assignmentList.addEventListener("click", function(event) {
 
 
 
+    // ==============================
+    // Delete Assignment
+    // ==============================
 
-    // Delete completed assignment
 
     if(event.target.classList.contains("delete")) {
 
@@ -254,22 +303,6 @@ assignmentList.addEventListener("click", function(event) {
 
 
 });
-/* When marked it updates in progress page*/
-
-function completeAssignment(){
-
-
-    let completed =
-        Number(localStorage.getItem("completedAssignments")) || 0;
-
-
-    completed++;
-
-
-    localStorage.setItem(
-        "completedAssignments",
-        completed
-    );
 
 
 }
@@ -277,6 +310,10 @@ function completeAssignment(){
 
 
 
-// Load assignments when page opens
+
+
+// ==============================
+// Load Assignments
+// ==============================
 
 displayAssignments();

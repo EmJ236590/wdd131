@@ -1,4 +1,4 @@
-// timer.js
+// Timer
 
 console.log("Timer JS Loaded");
 
@@ -32,8 +32,11 @@ document.querySelector("#resetTimer");
 // Session buttons
 
 const sessionButtons =
-document.querySelectorAll(".session-btn");
+    document.querySelectorAll(".session-btn");
 
+
+const breakButtons =
+    document.querySelectorAll(".break-btn");
 
 
 
@@ -46,6 +49,11 @@ let seconds = 0;
 let timer;
 
 let isRunning = false;
+
+
+// Tracks what type of timer is active
+
+let isBreak = false;
 
 
 
@@ -79,23 +87,53 @@ function countdown(){
     if(minutes === 0 && seconds === 0){
 
 
-    clearInterval(timer);
+        clearInterval(timer);
 
 
-    isRunning = false;
+        isRunning = false;
 
 
-    // Record completed study session
-    recordStudySession();
+
+        // If timer was a break
+
+        if(isBreak){
 
 
-    alert("Study session complete! Great job!");
+            recordBreak();
 
 
-    return;
+            alert("Break complete! Ready to study?");
 
 
-}
+            isBreak = false;
+
+
+        }
+
+
+        // If timer was study session
+
+        else {
+
+
+            recordStudySession();
+
+
+            alert("Study session complete! Great job!");
+
+
+        }
+
+
+
+        return;
+
+
+    }
+
+
+
+
 
     if(seconds === 0){
 
@@ -117,10 +155,10 @@ function countdown(){
 
 
     updateDisplay();
-    recordStudySession();
 
 
 }
+
 
 
 
@@ -152,6 +190,7 @@ startButton.addEventListener("click",()=>{
 
 
 
+
 // Pause timer
 
 pauseButton.addEventListener("click",()=>{
@@ -164,6 +203,7 @@ pauseButton.addEventListener("click",()=>{
 
 
 });
+
 
 
 
@@ -187,10 +227,14 @@ resetButton.addEventListener("click",()=>{
     isRunning = false;
 
 
+    isBreak = false;
+
+
     updateDisplay();
 
 
 });
+
 
 
 
@@ -212,6 +256,9 @@ sessionButtons.forEach(button=>{
         isRunning = false;
 
 
+        isBreak = false;
+
+
 
         minutes =
         Number(button.dataset.time);
@@ -230,7 +277,56 @@ sessionButtons.forEach(button=>{
 });
 
 
-/* Recorded to Progress Page */
+
+
+
+
+
+
+// Select break
+
+breakButtons.forEach(button=>{
+
+
+    button.addEventListener("click",()=>{
+
+
+        clearInterval(timer);
+
+
+        isRunning = false;
+
+
+        isBreak = true;
+
+
+
+        minutes =
+        Number(button.dataset.time);
+
+
+        seconds = 0;
+
+
+
+        updateDisplay();
+
+
+    });
+
+
+});
+
+
+
+
+
+
+
+
+
+// Record completed study session
+
 function recordStudySession(){
 
 
@@ -248,6 +344,34 @@ function recordStudySession(){
 
 
 }
+
+
+
+
+
+
+// Record completed break
+
+function recordBreak(){
+
+
+    let breaks =
+        Number(localStorage.getItem("breaks")) || 0;
+
+
+    breaks++;
+
+
+    localStorage.setItem(
+        "breaks",
+        breaks
+    );
+
+
+}
+
+
+
 
 
 

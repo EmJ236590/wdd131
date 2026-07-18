@@ -1,78 +1,380 @@
-// ===== STUDYMATE PROGRESS JS =====
+// Timer
+
+console.log("Timer JS Loaded");
 
 
-// Select cards
+// Timer display
 
-const completedCard = 
-    document.querySelector("#completed-count");
-
-
-const sessionCard = 
-    document.querySelector("#session-count");
+const minutesDisplay =
+document.querySelector("#minutes");
 
 
-const currentGoal = 
-    document.querySelector("#current-goal");
-
+const secondsDisplay =
+document.querySelector("#seconds");
 
 
 
-// Get saved progress
+// Buttons
 
-let completedAssignments =
-    Number(localStorage.getItem("completedAssignments")) || 0;
-
-
-let studySessions =
-    Number(localStorage.getItem("studySessions")) || 0;
+const startButton =
+document.querySelector("#startTimer");
 
 
+const pauseButton =
+document.querySelector("#pauseTimer");
 
 
-// Display assignment progress
+const resetButton =
+document.querySelector("#resetTimer");
 
-if (completedCard) {
 
-    completedCard.textContent =
-        completedAssignments;
+
+// Session buttons
+
+const sessionButtons =
+    document.querySelectorAll(".session-btn");
+
+
+const breakButtons =
+    document.querySelectorAll(".break-btn");
+
+
+
+// Timer variables
+
+let minutes = 25;
+
+let seconds = 0;
+
+let timer;
+
+let isRunning = false;
+
+
+// Tracks what type of timer is active
+
+let isBreak = false;
+
+
+
+
+
+// Update display
+
+function updateDisplay(){
+
+
+    minutesDisplay.textContent =
+    minutes.toString().padStart(2,"0");
+
+
+    secondsDisplay.textContent =
+    seconds.toString().padStart(2,"0");
+
 
 }
 
 
 
-// Display study sessions
-
-if (sessionCard) {
-
-    sessionCard.textContent =
-        studySessions;
-
-}
 
 
 
-// Display current goal
+// Countdown
 
-let savedGoal =
-    localStorage.getItem("currentGoal");
-
+function countdown(){
 
 
-if (currentGoal) {
+    if(minutes === 0 && seconds === 0){
 
 
-    if(savedGoal) {
+        clearInterval(timer);
 
-        currentGoal.textContent =
-            savedGoal;
+
+        isRunning = false;
+
+
+
+        // If timer was a break
+
+        if(isBreak){
+
+
+            recordBreak();
+
+
+            alert("Break complete! Ready to study?");
+
+
+            isBreak = false;
+
+
+        }
+
+
+        // If timer was study session
+
+        else {
+
+
+            recordStudySession();
+
+
+            alert("Study session complete! Great job!");
+
+
+        }
+
+
+
+        return;
+
 
     }
 
-    else {
 
-        currentGoal.textContent =
-            "Stay Organized";
+
+
+
+    if(seconds === 0){
+
+
+        minutes--;
+
+        seconds = 59;
+
 
     }
 
+    else{
+
+
+        seconds--;
+
+    }
+
+
+
+    updateDisplay();
+
+
 }
+
+
+
+
+
+
+
+// Start timer
+
+startButton.addEventListener("click",()=>{
+
+
+    if(!isRunning){
+
+
+        timer =
+        setInterval(countdown,1000);
+
+
+        isRunning = true;
+
+
+    }
+
+
+});
+
+
+
+
+
+
+
+// Pause timer
+
+pauseButton.addEventListener("click",()=>{
+
+
+    clearInterval(timer);
+
+
+    isRunning = false;
+
+
+});
+
+
+
+
+
+
+
+
+// Reset timer
+
+resetButton.addEventListener("click",()=>{
+
+
+    clearInterval(timer);
+
+
+    minutes = 25;
+
+    seconds = 0;
+
+
+    isRunning = false;
+
+
+    isBreak = false;
+
+
+    updateDisplay();
+
+
+});
+
+
+
+
+
+
+
+
+// Select study session
+
+sessionButtons.forEach(button=>{
+
+
+    button.addEventListener("click",()=>{
+
+
+        clearInterval(timer);
+
+
+        isRunning = false;
+
+
+        isBreak = false;
+
+
+
+        minutes =
+        Number(button.dataset.time);
+
+
+        seconds = 0;
+
+
+
+        updateDisplay();
+
+
+    });
+
+
+});
+
+
+
+
+
+
+
+
+// Select break
+
+breakButtons.forEach(button=>{
+
+
+    button.addEventListener("click",()=>{
+
+
+        clearInterval(timer);
+
+
+        isRunning = false;
+
+
+        isBreak = true;
+
+
+
+        minutes =
+        Number(button.dataset.time);
+
+
+        seconds = 0;
+
+
+
+        updateDisplay();
+
+
+    });
+
+
+});
+
+
+
+
+
+
+
+
+
+// Record completed study session
+
+function recordStudySession(){
+
+
+    let sessions =
+        Number(localStorage.getItem("studySessions")) || 0;
+
+
+    sessions++;
+
+
+    localStorage.setItem(
+        "studySessions",
+        sessions
+    );
+
+
+}
+
+
+
+
+
+
+// Record completed break
+
+function recordBreak(){
+
+
+    let breaks =
+        Number(localStorage.getItem("breaks")) || 0;
+
+
+    breaks++;
+
+
+    localStorage.setItem(
+        "breaks",
+        breaks
+    );
+
+
+}
+
+
+
+
+
+
+// Load timer
+
+updateDisplay();

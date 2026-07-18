@@ -1357,3 +1357,70 @@ main {
     background:#7C60BE;
 
 }
+.refresh-button {
+
+    margin-top: 20px;
+
+    padding: 12px 25px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #7C60be;
+
+    color: white;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+.refresh-button:hover {
+
+    transform: scale(1.05);
+
+    background: #589EC6;
+
+}
+
+
+#last-updated {
+
+    margin-top: 10px;
+
+    font-size: .9rem;
+
+}
+.reset-button {
+
+    margin-top: 20px;
+
+    margin-left: 10px;
+
+    padding: 12px 25px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #899194;
+
+    color: white;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+}
+
+
+.reset-button:hover {
+
+    background: #7C60be;
+
+}
